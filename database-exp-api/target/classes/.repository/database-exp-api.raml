@@ -1,0 +1,55 @@
+#%RAML 1.0
+title: databaseapi
+baseUri: https://anypoint.mulesoft.com/mocking/api/v1/links/979806a5-0d7f-412f-b48e-3b39a650edec/ # baseUri: http://localhost:8081
+protocols:  [ HTTP ]
+mediaType: [ application/json ]
+version: 1.0
+/student:
+  get:
+    queryParameters:
+      ID:
+       type: integer
+       required: true
+      
+    responses:
+      200:
+        body:
+          application/json:
+            examples:
+              {
+                "ID":101,"NAME":"SIVA","SALARY":1000
+              }
+      400:
+        body:
+          application/json:
+           example:
+             
+            { "Message": "invalid request"
+             }
+      500:
+        body:
+          application/json:
+            example:
+             {"Message":"service is unavible"}
+             
+             
+                     
+                    
+  post:
+    body:
+      application/json:
+        examples:
+          {
+                "ID":101,"NAME":"SIVA","SALARY":1000
+              }
+    responses:
+      200:
+        body:
+          application/json:
+            examples:
+              {
+                "Message":"record has been created sucessfully"
+              }
+      
+      
+      
